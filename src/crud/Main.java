@@ -9,6 +9,9 @@ public class Main {
         Main mainInstance = new Main();
         System.out.println(args[0]);
         mainInstance.file = new File(args[0]);
+
+        CRuD crud = new CRuD(mainInstance.file);
+
         //input information via console
         try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in)))
         {
@@ -26,8 +29,11 @@ public class Main {
                 if(line.startsWith("-u ")){
                     System.out.println("Updating existing entries.");
                 }else
-                if(line.startsWith("-d ")){
-                    System.out.println("Deleting entry.");
+                if(line.startsWith("-r ")){
+                    //-r id   => -r 1
+                    System.out.println("Removing entry.");
+                    line = line.replaceFirst("-r ","");
+                    crud.remove(Integer.valueOf(line));
                 }else{
                     System.out.println("Wrong request, please rewrite.");
                 }
@@ -49,6 +55,7 @@ public class Main {
             String line;
             while ((line = bufferedReader.readLine()) != null){
                 line = line.split(";")[0];
+                //TODO change 3 lines bellow with methom @trimZerosBefore, after @create will be transferred to CRUD class
                 while (line.startsWith("0")){
                     line = line.replaceFirst("0","");
                 }
