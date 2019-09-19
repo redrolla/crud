@@ -6,6 +6,7 @@ File consists of lines, each line - information about a single ship, line looks 
 [tonnage int_8];[destination String_16];[has_weapons? String_4]
 
 Command examples:
+
     -c Salvation;Grand cruiser;4353;350000;Eye Of Terror;true
     -c Retribution;Grand cruiser;00003456;00350000;Holy Terra    ;true
     -c Harrower          ;Firestorm frigate ;00000246;00005367;Ultramar.Calth;true
@@ -24,6 +25,7 @@ Task:
     b) programm must finish work when written "exit" in console
     c) information is separated using ";" in file
     e) parameters description:
+    
         -c => create new line in file
         -u => update line
         -d => delete line
