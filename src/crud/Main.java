@@ -20,8 +20,8 @@ public class Main {
                     -c Harrower          ;Firestorm frigate ;00000246;00005367;Ultramar.Calth;true
                     -c Golden Coin;Privateer frigate;114;6000;Ultramar.Maccrage;false
 
-                    -r 1
-                    -r 3
+                    -d 1
+                    -d 3
 
                     -u 3;Salvation;Cruiser;00002353;00150000;Eye Of Terror;true
 
@@ -44,11 +44,11 @@ public class Main {
                     line = line.replaceFirst("-u ","");
                     crud.update(line);
                 }else
-                if(line.startsWith("-r ")){
-                    //-r id   => -r 1
-                    System.out.println("Removing entry.");
-                    line = line.replaceFirst("-r ","");
-                    crud.remove(Integer.valueOf(line));
+                if(line.startsWith("-d ")){
+                    //-d id   => -d 1
+                    System.out.println("Deleting entry.");
+                    line = line.replaceFirst("-d ","");
+                    crud.delete(Integer.valueOf(line));
                 }else{
                     System.out.println("Wrong request, please rewrite.");
                 }

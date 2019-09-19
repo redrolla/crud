@@ -84,7 +84,7 @@ public class CRuD {
         }
     }
 
-    public void remove(int id){
+    public void delete(int id){
         if(idExists(id)){
             //create .tmp file, copy all contents from original file except line with id
             File tempFile = new File(file.getAbsolutePath()+".tmp");
